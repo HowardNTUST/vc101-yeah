@@ -77,6 +77,8 @@
         "Noto Sans TC",
         "Microsoft JhengHei",
         sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
       color: var(--text-charcoal);
       background:
         radial-gradient(circle at 10% 10%, rgba(var(--primary-blue-rgb), 0.14), transparent 32%),
@@ -84,6 +86,37 @@
         radial-gradient(circle at 50% 90%, rgba(var(--fresh-mint-rgb), 0.12), transparent 30%),
         linear-gradient(135deg, #FFFFFF 0%, var(--frost-white) 45%, var(--cloud-white) 100%);
       overflow-x: hidden;
+    }
+
+    .background-video {
+      position: fixed;
+      inset: 0;
+      z-index: -40;
+      overflow: hidden;
+      pointer-events: none;
+      background: radial-gradient(circle at top, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55) 55%);
+    }
+
+    .background-video::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(8, 12, 23, 0.22) 0%, rgba(8, 12, 23, 0.72) 100%);
+      pointer-events: none;
+      mix-blend-mode: normal;
+    }
+
+    .background-video iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 177.77778vh;
+      height: 100vh;
+      min-width: 100vw;
+      min-height: 56.25vw;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      filter: brightness(0.55) contrast(1.05);
     }
 
     body::before {
@@ -459,6 +492,10 @@
 </head>
 
 <body>
+  <div class="background-video">
+    <iframe src="https://www.youtube.com/embed/i-gmUH_d_8w?autoplay=1&mute=1&controls=0&loop=1&playlist=i-gmUH_d_8w&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1" title="背景影片：Howard Chung AI Marketing" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
   <!-- Background Effects -->
   <div class="fixed inset-0 pointer-events-none -z-20 overflow-hidden">
     <div class="orb orb-1"></div>
